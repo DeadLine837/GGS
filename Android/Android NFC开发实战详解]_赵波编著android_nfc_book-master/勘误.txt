@@ -1,0 +1,29 @@
+http://blog.csdn.net/zgzhaobo/article/details/21453941
+勘误ING
+1  P96页，5.2.2下面的"(1)主程序P2PDemo1.java...."， 改为 "(1)主程序ReadTag_RTDUrl.java..."
+    P118页，5.3.2下面的"主程序P2PDemo1.java..."  改为“主程序WriteTag_RTDUrl.java...”
+2  P251页，在NDEF消息获取模块代码中，第4~45行之间漏掉了判断，在第4行前加上（GitHub已更新）
+[java] view plain copy
+原始：  
+    ...  
+3 super.onResume();  
+4 //get NFC Object  
+   ...  
+45 ｝  
+   
+修改为  
+     ...  
+3 super.onResume();  
+if(NfcAdapter.ACTION_TECH_DISCOVERED.equals(getIntent().getAction())) //增加判断  
+{    
+4 //get NFC Object  
+   ...  
+45 ｝  
+｝  
+[java] view plain copy
+   
+  P121页类似，为了演示将三个判断都加进去了，其中有两个(是具体TAG类型而定，NDEF和TAG)需要加return的.
+ 3  P73,P89,P108页 中的  ACTION_TAB_DISCOVERED，改为ACTION_TAG_DISCOVERED  
+ 4. P68页，ACTION_NFC_SETTINGS...使用该方法，需要在Android API 9+以上系统中...（改为API16+）
+ 5. P36页，表2-6中 Payload_lenght改为Payload_length
+（收集中...）
